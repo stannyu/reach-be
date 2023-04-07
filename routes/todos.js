@@ -40,7 +40,6 @@ router.put('/:id',  async (req, res) => {
     };
   
     let todo = await Todo.find({_id: req.params.id});
-    console.log('TODO:');
     if (!todo) return res.status(404).send(`Todo with id: ${req.params.id} wasn't found`);
   
     todo = await Todo.findByIdAndUpdate(req.params.id, updateParam, { new: true });
