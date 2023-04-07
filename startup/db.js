@@ -7,8 +7,7 @@ const dbInitialization = (params) => {
   mongoose.connect(dbName, { useNewUrlParser: true }).then(() => {
     console.log(
       "DB connected: ",
-      process.env.NODE_ENV,
-      config.get("db")
+      process.env.NODE_ENV === "production" ? "production" : "development"
     );
   });
 };
